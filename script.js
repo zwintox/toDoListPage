@@ -28,3 +28,17 @@ function submit (){
         }
     }
 }
+
+var list =document.querySelector('ul');
+list.addEventListener('click', function(e) {
+    if (e.target.tagName === 'LI') {
+        e.target.classlist.toggle('checked');
+    }
+}, false);
+
+$(function() {
+	$("#rememberList").sortable();
+	$("#rememberList").disableSelection();
+});
+
+
