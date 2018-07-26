@@ -2,6 +2,7 @@
 
 
 
+
 function submit (){
     var li = document.createElement("li");
     var input=document.getElementById("newInput").value;
@@ -17,11 +18,12 @@ function submit (){
     span.appendChild(txt);
     li.appendChild(span);
 
+    var close = document.getElementsByClassName("close");
+
     for (i =0; i< close.length; i++) {
         close[i].onclick = function() {
             var div = this.parentElement;
             div.style.display ="none";
         }
     }
-    
 }
