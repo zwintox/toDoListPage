@@ -1,20 +1,27 @@
-document.getElementById("newInput").addEventListener("keypress", function(e) {
+let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
+
+/*localStorage.setItem('items', JSON.stringify(itemsArray));
+const data = JSON.parse(localStorage.getItem('items'));
+document.getElementById("rememberList").innerHTML = data;
+*/
+
+document.getElementById("newInput").addEventListener("keypress", function (e) {
     if (event.keyCode == 13) {
         submit();
     }
 });
 
-function submit (){
+function submit() {
     var li = document.createElement("li");
-    var input=document.getElementById("newInput").value;
+    var input = document.getElementById("newInput").value;
     var t = document.createTextNode(input);
     li.appendChild(t);
-    if (input === ''){
+    if (input === '') {
         alert("Du måste skriva något!")
     } else {
         document.getElementById("rememberList").appendChild(li);
     }
-    
+
     document.getElementById("newInput").value = "";
 
 
@@ -26,27 +33,31 @@ function submit (){
     span.appendChild(time);
     span.appendChild(txt);
     li.appendChild(span);
-    
+
     var close = document.getElementsByClassName("close");
 
-    for (i =0; i< close.length; i++) {
-        close[i].onclick = function() {
+    for (i = 0; i < close.length; i++) {
+        close[i].onclick = function () {
             var div = this.parentElement;
-            div.style.display ="none";
+            div.style.display = "none";
         }
     }
+    /*
+    itemsArray.push(input);
+    localStorage.setItem('items', JSON.stringify(itemsArray));
+    */
 }
 
-var list =document.querySelector('ul');
-list.addEventListener('click', function(e) {
+var list = document.querySelector('ul');
+list.addEventListener('click', function (e) {
     if (e.target.tagName === 'LI') {
         e.target.classList.toggle('checked');
     }
 }, false);
 
-$(function() {
-	$("#rememberList").sortable();
-	$("#rememberList").disableSelection();
+$(function () {
+    $("#rememberList").sortable();
+    $("#rememberList").disableSelection();
 });
 
 

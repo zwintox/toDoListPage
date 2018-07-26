@@ -30,6 +30,7 @@ ul li:nth-child(odd) {
 }
 
 ul {
+    list-style-type: none;
     margin: 0;
     padding: 0;
 }
@@ -62,4 +63,12 @@ ul li.checked::before {
 input {
     color: white;
     background: hotpink
+}
+
+#wrapper {
+    margin-top: 3%; 
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: center;
+    border: dotted 5px hotpink;
 }
