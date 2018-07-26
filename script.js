@@ -9,16 +9,24 @@ function submit (){
     var input=document.getElementById("newInput").value;
     var t = document.createTextNode(input);
     li.appendChild(t);
-    document.getElementById("rememberList").appendChild(li);
+    if (input === ''){
+        alert("Du måste skriva något!")
+    } else {
+        document.getElementById("rememberList").appendChild(li);
+    }
+    
     document.getElementById("newInput").value = "";
 
 
     var span = document.createElement("SPAN");
     var txt = document.createTextNode("\u00D7");
+    var date = new Date();
+    var time = document.createTextNode(date.toDateString());
     span.className = "close";
+    span.appendChild(time);
     span.appendChild(txt);
     li.appendChild(span);
-
+    
     var close = document.getElementsByClassName("close");
 
     for (i =0; i< close.length; i++) {
@@ -32,7 +40,7 @@ function submit (){
 var list =document.querySelector('ul');
 list.addEventListener('click', function(e) {
     if (e.target.tagName === 'LI') {
-        e.target.classlist.toggle('checked');
+        e.target.classList.toggle('checked');
     }
 }, false);
 
