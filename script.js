@@ -1,7 +1,8 @@
-
-
-
-
+document.getElementById("newInput").addEventListener("keypress", function(e) {
+    if (event.keyCode == 13) {
+        submit();
+    }
+});
 
 function submit (){
     var li = document.createElement("li");
